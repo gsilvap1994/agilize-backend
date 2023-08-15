@@ -1,0 +1,21 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""Goal"""
+type Goal {
+  id: ID!
+  text: String!
+  completed: Boolean!
+}
+
+type Query {
+  findGoals: [Goal!]!
+  findGoal(id: Float!): Goal!
+}
+
+type Mutation {
+  newGoal(text: String!, completed: Boolean!): Goal!
+  editGoal(id: Float!, text: String!, completed: Boolean!): Goal!
+  deleteGoal(id: Float!): Goal!
+}
