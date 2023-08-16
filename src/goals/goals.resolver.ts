@@ -55,7 +55,7 @@ export class GoalsResolver {
   }
 
   @Mutation((returns) => Goal)
-  async deleteGoal(@Args('id') id: number): Promise<Goal> {
+  async deleteGoal(@Args('id', { type: () => Int }) id: number): Promise<Goal> {
     const goal = await this.goalsService.deleteGoal({ id });
 
     if (!goal) {
