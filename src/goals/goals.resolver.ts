@@ -1,5 +1,5 @@
 import { ConflictException, NotFoundException } from '@nestjs/common';
-import { Args, Resolver, Query, Mutation } from '@nestjs/graphql';
+import { Args, Resolver, Query, Mutation, Int } from '@nestjs/graphql';
 import { GoalsService } from './goals.service';
 import { Goal } from './models/goal.model';
 
@@ -13,7 +13,7 @@ export class GoalsResolver {
   }
 
   @Query((returns) => Goal)
-  async goal(@Args('id') id: number): Promise<Goal> {
+  async goal(@Args('id', { type: () => Int }) id: number): Promise<Goal> {
     const goal = await this.goalsService.findGoal({ id });
     if (!goal) {
       throw new NotFoundException(id);
@@ -38,7 +38,7 @@ export class GoalsResolver {
 
   @Mutation((returns) => Goal)
   async editGoal(
-    @Args('id') id: number,
+    @Args('id', { type: () => Int }) id: number,
     @Args('text') text: string,
     @Args('completed') completed: boolean,
   ): Promise<Goal> {

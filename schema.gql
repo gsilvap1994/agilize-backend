@@ -10,12 +10,12 @@ type Goal {
 }
 
 type Query {
-  findGoals: [Goal!]!
-  findGoal(id: Float!): Goal!
+  goals: [Goal!]!
+  goal(id: Int!): Goal!
 }
 
 type Mutation {
   newGoal(text: String!, completed: Boolean!): Goal!
-  editGoal(id: Float!, text: String!, completed: Boolean!): Goal!
+  editGoal(id: Int!, text: String!, completed: Boolean!): Goal!
   deleteGoal(id: Float!): Goal!
 }
