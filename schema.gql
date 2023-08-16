@@ -17,5 +17,5 @@ type Query {
 type Mutation {
   newGoal(text: String!, completed: Boolean!): Goal!
   editGoal(id: Int!, text: String!, completed: Boolean!): Goal!
-  deleteGoal(id: Float!): Goal!
+  deleteGoal(id: Int!): Goal!
 }
